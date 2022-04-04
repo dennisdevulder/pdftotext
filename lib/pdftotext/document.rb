@@ -7,10 +7,8 @@ module Pdftotext
     end
 
     def text(options={})
-      Tempfile.open(['pdftotext', '.txt'], ENV['TEMPFILE_DIR'] || '/tmp/') do |file|
-        Pdftotext.cli.run_command path, options
-        file.read
-      end
+      Pdftotext.cli.run_command path, options
+      File.read('tmp/result.pdf')
     end
 
     def pages(options={})
