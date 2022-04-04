@@ -8,7 +8,7 @@ module Pdftotext
 
     def text(options={})
       `pdftotext tmp/result.pdf`
-      File.read('tmp/result.txt')
+      File.read('tmp/result.txt', encoding: 'iso-8859-1')
     end
 
     def pages(options={})
