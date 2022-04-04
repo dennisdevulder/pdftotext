@@ -8,7 +8,7 @@ module Pdftotext
 
     def text(options={})
       Pdftotext.cli.run_command path, options
-      File.read('tmp/result.pdf')
+      File.read('tmp/result.txt')
     end
 
     def pages(options={})
