@@ -7,7 +7,7 @@ module Pdftotext
     end
 
     def text(options={})
-      Pdftotext.cli.run_command path, options
+      `pdftotext tmp/result.pdf`
       File.read('tmp/result.txt')
     end
 
