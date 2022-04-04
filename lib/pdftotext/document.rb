@@ -7,7 +7,7 @@ module Pdftotext
     end
 
     def text(options={})
-      Tempfile.open(['pdftotext', '.txt']) do |file|
+      Tempfile.open(['pdftotext', '.txt'], ENV.fetch('TEMPFILE_DIR') || '/tmp/') do |file|
         Pdftotext.cli.run_command path, file.path, options
         file.read
       end
