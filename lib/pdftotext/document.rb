@@ -6,9 +6,9 @@ module Pdftotext
       @path = File.expand_path(path)
     end
 
-    def text(options={})
-      `pdftotext /app/tmp/result.pdf -layout`
-      File.read('/app/tmp/result.txt', encoding: 'iso-8859-1')
+    def text(pat)
+      `pdftotext #{path} -layout`
+      File.read(path.gsub('.pdf', '.txt'), encoding: 'iso-8859-1')
     end
 
     def pages(options={})
